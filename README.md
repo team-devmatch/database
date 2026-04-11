@@ -7,7 +7,13 @@ ERD 설계 및 DDL 스크립트
 - sql/ → DDL SQL 스크립트
 
 ## 기술 스택
-- PostgreSQL
+- PostgreSQL (메인 DB)
+- Redis (캐시 / Rate Limiting)
+- MongoDB (NoSQL)
+
+## 설계 원칙
+- 트랜잭션 관리 적용
+- 데이터 암호화 & 보안 적용
 
 ## 주요 테이블
 - USER → 사용자
