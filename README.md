@@ -6,6 +6,7 @@ ERD 설계 및 DDL 스크립트
 
 - erd/ → ERD 이미지 파일
 - sql/ → DDL SQL 스크립트
+- scripts/ → 데이터 수집 스크립트
 
 ## 기술 스택
 
