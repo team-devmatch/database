@@ -173,8 +173,9 @@ def fetch_festival_details():
             print(f"[{index}/{total}] {name} 상세 수집 중...")
 
             #공통 정보 조회
-            url = f"https://apis.data.go.kr/B551011/KorService2/detailCommon2?serviceKey={API_KEY}&contentId={content_id}&MobileOS=ETC&MobileApp=FestAI&_type=json&defaultYN=Y&firstImageYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y"
+            url = f"https://apis.data.go.kr/B551011/KorService2/detailCommon2?serviceKey={API_KEY}&contentId={content_id}&MobileOS=ETC&MobileApp=FestAI&_type=json"
             response = requests.get(url, timeout=10)
+
             data = response.json()
             item = data["response"]["body"]["items"]["item"]
 
