@@ -96,19 +96,9 @@ def fetch_festivals():
     while True:
         print(f"페이지 {page} 수집 중..")
 
-        params = {
-            "serviceKey": API_KEY,
-            "numOfRows": 100, #한번에 가져올 데이터 개수
-            "pageNo": page,
-            "MobileOS": "ETC", # ETC:기타(웹/서버)
-            "MobileApp": "FestAI", # FestAI(프로젝트 이름)
-            "_type": "json", # 응답 데이터 형식 지정
-            "eventStartDate": "20260101", # 2026년 이후 축제 데이터만 수집
-            "arrange": "A" #정렬 방식: 제목순(A)
-        }
-
         try:
-            response = requests.get(BASE_URL, params=params, timeout=10)
+            url = f"{BASE_URL}?serviceKey={API_KEY}&numOfRows=100&pageNo={page}&MobileOS=ETC&MobileApp=FestAI&_type=json&eventStartDate=20260101&arrange=A"
+            response = requests.get(url, timeout=10)
             data = response.json()
 
             body = data["response"]["body"]
@@ -183,21 +173,8 @@ def fetch_festival_details():
             print(f"[{index}/{total}] {name} 상세 수집 중...")
 
             #공통 정보 조회
-            url = "https://apis.data.go.kr/B551011/KorService2/detailCommon2"
-            params = {
-                "serviceKey": API_KEY,
-                "contentId": content_id,
-                "MobileOS": "ETC",
-                "MobileApp": "FestAI",
-                "_type": "json",
-                "defaultYN": "Y",
-                "firstImageYN": "Y",
-                "addrinfoYN": "Y",
-                "mapinfoYN": "Y",
-                "overviewYN": "Y"
-            }
-
-            response = requests.get(url, params=params, timeout=10)
+            url = f"https://apis.data.go.kr/B551011/KorService2/detailCommon2?serviceKey={API_KEY}&contentId={content_id}&MobileOS=ETC&MobileApp=FestAI&_type=json&defaultYN=Y&firstImageYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y"
+            response = requests.get(url, timeout=10)
             data = response.json()
             item = data["response"]["body"]["items"]["item"]
 
@@ -205,16 +182,8 @@ def fetch_festival_details():
                 item = item[0]
 
             #소개 정보 조회
-            url2 = "https://apis.data.go.kr/B551011/KorService2/detailIntro2"
-            params2 = {
-                "serviceKey": API_KEY,
-                "contentId": content_id,
-                "contentTypeId": 15,
-                "MobileOS": "ETC",
-                "MobileApp": "FestAI",
-                "_type": "json"
-            }
-            response2 = requests.get(url2, params=params2, timeout=10)
+            url2 = f"https://apis.data.go.kr/B551011/KorService2/detailIntro2?serviceKey={API_KEY}&contentId={content_id}&contentTypeId=15&MobileOS=ETC&MobileApp=FestAI&_type=json"
+            response2 = requests.get(url2, timeout=10)
             data2 = response2.json()
             item2 = data2["response"]["body"]["items"]["item"]
 
