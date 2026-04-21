@@ -98,12 +98,12 @@ def fetch_festivals():
 
         params = {
             "serviceKey": API_KEY,
-            "num0fRows": 100, #한번에 가져올 데이터 개수
+            "numOfRows": 100, #한번에 가져올 데이터 개수
             "pageNo": page,
             "MobileOS": "ETC", # ETC:기타(웹/서버)
             "MobileApp": "FestAI", # FestAI(프로젝트 이름)
             "_type": "json", # 응답 데이터 형식 지정
-            "eventStarDate": "20260101", # 2026년 이후 축제 데이터만 수집
+            "eventStartDate": "20260101", # 2026년 이후 축제 데이터만 수집
             "arrange": "A" #정렬 방식: 제목순(A)
         }
 
