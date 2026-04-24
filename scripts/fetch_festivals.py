@@ -84,15 +84,13 @@ def get_theme(name, description):
         return "힐링코스"
     elif any(k in text for k in tourism_keywords):
         return "관광두레"
-    else:
-        return "전체"
     
 # 전국 축제 수집 
 def fetch_festivals():
     print("\n=== 기본 정보 수집 시작 ===")
     page = 1
     total_saved = 0
-
+    
     while True:
         print(f"페이지 {page} 수집 중..")
 
