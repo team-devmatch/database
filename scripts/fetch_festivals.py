@@ -217,7 +217,6 @@ def fetch_festival_details():
                 UPDATE festival
                 SET theme = %s
                 WHERE festival_id = %s
-                AND theme = '전체'
             """, (new_theme, festival_id))
 
             conn.commit()
