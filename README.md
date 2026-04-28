@@ -30,6 +30,4 @@ ERD 설계 및 DDL 스크립트
 
 ## 브랜치 규칙
 
-- feature/erd-수정내용 → ERD 변경
-- feature/ddl-수정내용 → SQL 변경
 - main → 최종 확정본
